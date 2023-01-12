@@ -22,6 +22,7 @@ const Signup = (props) => {
     initialDeposit: "",
     identificationType: "",
     identificationNo: "",
+    citizenStatus: "",
   };
 
   const [formValues, setFormValues] = useState(initialValues);
@@ -70,6 +71,18 @@ const Signup = (props) => {
     const currentDate = new Date();
     if (currentDate < dob) {
       errors.dob = "DOB should be less than system date.";
+    }
+    let age = currentDate.getFullYear() - dob.getFullYear();
+    const month = currentDate.getMonth() - dob.getMonth();
+    if (month < 0 || (month === 0 && currentDate.getDate() < dob.getDate())) {
+      age--;
+    }
+    if (age < 18) {
+      setFormValues({ ...formValues, citizenStatus: "minor" });
+    } else if (age >= 18 && age <= 60) {
+      setFormValues({ ...formValues, citizenStatus: "normal" });
+    } else {
+      setFormValues({ ...formValues, citizenStatus: "senior" });
     }
 
     if (+values.initialDeposit < 0) {
