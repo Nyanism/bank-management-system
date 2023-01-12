@@ -1,0 +1,19 @@
+.flexcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  font: inherit;
+  color: #08044c;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+  border: 1px solid #08044c;
+  background-color: #08044c;
+  color: white;
+}

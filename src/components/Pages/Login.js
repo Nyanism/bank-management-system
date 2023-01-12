@@ -13,9 +13,11 @@ const Login = (props) => {
           <label htmlFor="password">Password</label>
           <input type="password" id="password" required />
         </div>
-        <div className={classes.actions}>
-          <button className={classes.submit}>Log In</button>
-        </div>
+        <Link to="/home">
+          <div className={classes.actions}>
+            <button className={classes.submit}>Log In</button>
+          </div>
+        </Link>
       </form>
       <p>Not a user?</p>
       <Link to="/signup">
