@@ -1,10 +1,6 @@
 import classes from "./Signup.module.css";
 import { useState } from "react";
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 const Signup = (props) => {
   const initialValues = {
@@ -102,9 +98,10 @@ const Signup = (props) => {
           name="name"
           value={formValues.name}
           onChange={handleChange}
+          required
         />
       </div>
-      <p>{formErrors.name}</p>
+      <p className={classes.errors}>{formErrors.name}</p>
       <div className={classes.control}>
         <label htmlFor="username">Username</label>
         <input
@@ -113,6 +110,7 @@ const Signup = (props) => {
           name="username"
           value={formValues.username}
           onChange={handleChange}
+          required
         />
       </div>
       <div className={classes.control}>
@@ -123,6 +121,7 @@ const Signup = (props) => {
           name="password"
           value={formValues.password}
           onChange={handleChange}
+          required
         />
       </div>
       <div className={classes.control}>
@@ -133,6 +132,7 @@ const Signup = (props) => {
           name="address"
           value={formValues.address}
           onChange={handleChange}
+          required
         />
       </div>
       <div className={classes.control}>
@@ -141,6 +141,7 @@ const Signup = (props) => {
           value={formValues.country}
           onChange={handleCountryChange}
           classes={classes.dropdown}
+          required
         />
       </div>
       <div className={classes.control}>
@@ -150,6 +151,7 @@ const Signup = (props) => {
           value={formValues.state}
           onChange={handleStateChange}
           classes={classes.dropdown}
+          required
         />
       </div>
       <div className={classes.control}>
@@ -160,9 +162,10 @@ const Signup = (props) => {
           name="email"
           value={formValues.email}
           onChange={handleChange}
+          required
         />
       </div>
-      <p>{formErrors.email}</p>
+      <p className={classes.errors}>{formErrors.email}</p>
       <div className={classes.control}>
         <label htmlFor="contactNo">Contact No.</label>
         <input
@@ -171,9 +174,10 @@ const Signup = (props) => {
           name="contactNo"
           value={formValues.contactNo}
           onChange={handleChange}
+          required
         />
       </div>
-      <p>{formErrors.contactNo}</p>
+      <p className={classes.errors}>{formErrors.contactNo}</p>
       <div className={classes.control}>
         <label htmlFor="dob">Date of Birth</label>
         <input
@@ -182,9 +186,10 @@ const Signup = (props) => {
           name="dob"
           value={formValues.dob}
           onChange={handleChange}
+          required
         />
       </div>
-      <p>{formErrors.dob}</p>
+      <p className={classes.errors}>{formErrors.dob}</p>
       <div className={classes.control}>
         <label htmlFor="accountType">Account Type</label>
         <select
@@ -192,6 +197,7 @@ const Signup = (props) => {
           name="accountType"
           value={formValues.accountType}
           onChange={handleChange}
+          required
         >
           <option value="salary">Salary</option>
           <option value="savings">Savings</option>
@@ -205,6 +211,7 @@ const Signup = (props) => {
           name="branchName"
           value={formValues.branchName}
           onChange={handleChange}
+          required
         />
       </div>
       <div className={classes.control}>
@@ -215,9 +222,10 @@ const Signup = (props) => {
           name="initialDeposit"
           value={formValues.initialDeposit}
           onChange={handleChange}
+          required
         />
       </div>
-      <p>{formErrors.initialDeposit}</p>
+      <p className={classes.errors}>{formErrors.initialDeposit}</p>
       <div className={classes.control}>
         <label htmlFor="identificationType">Identification Proof Type</label>
         <input
@@ -226,6 +234,7 @@ const Signup = (props) => {
           name="identificationType"
           value={formValues.identificationType}
           onChange={handleChange}
+          required
         />
       </div>
       <div className={classes.control}>
@@ -236,6 +245,7 @@ const Signup = (props) => {
           name="identificationNo"
           value={formValues.identificationNo}
           onChange={handleChange}
+          required
         />
       </div>
       <div className={classes.actions}>

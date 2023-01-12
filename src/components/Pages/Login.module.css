@@ -13,21 +13,22 @@
 }
 
 .control {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .control label,
 p {
+  color: black;
   font-weight: bold;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.22rem;
   display: block;
 }
 
 .control input {
   font: inherit;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 20rem;
+  border-radius: 3px;
+  width: 22rem;
   max-width: 100%;
 }
 
@@ -49,23 +50,4 @@ button {
   border: 1px solid #08044c;
   background-color: #08044c;
   color: white;
-}
-
-.actions button:hover,
-.actions button:active {
-  background-color: #ffe6dc;
-}
-
-.actions .submit:hover,
-.actions .submit:active {
-  background-color: #7a2706;
-}
-
-.invalid label {
-  color: #ca3e51;
-}
-
-.invalid input {
-  border-color: #aa0b20;
-  background-color: #ffeff1;
 }
