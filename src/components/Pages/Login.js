@@ -1,4 +1,3 @@
-import Card from "../UI/Card";
 import classes from "./Login.module.css";
 
 const Login = (props) => {
@@ -6,12 +5,12 @@ const Login = (props) => {
     <div className={classes.flexcontainer}>
       <form className={classes.form}>
         <div className={classes.control}>
-          <label htmlFor="name">Username</label>
-          <input type="text" id="name" />
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" />
         </div>
         <div className={classes.control}>
-          <label htmlFor="street">Password</label>
-          <input type="text" id="password" />
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" />
         </div>
         <div className={classes.actions}>
           <button className={classes.submit}>Confirm</button>
