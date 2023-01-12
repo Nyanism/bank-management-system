@@ -29,8 +29,13 @@ p {
   display: block;
 }
 
+p:empty {
+  display: none;
+}
+
 .control input,
-.control select {
+.control select,
+.dropdown {
   font: inherit;
   border: 1px solid #ccc;
   border-radius: 4px;

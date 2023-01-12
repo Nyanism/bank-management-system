@@ -1,5 +1,10 @@
 import classes from "./Signup.module.css";
 import { useState } from "react";
+import {
+  CountryDropdown,
+  RegionDropdown,
+  CountryRegionData,
+} from "react-country-region-selector";
 
 const Signup = (props) => {
   const initialValues = {
@@ -27,6 +32,14 @@ const Signup = (props) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
     console.log(formValues);
+  };
+
+  const handleCountryChange = (value) => {
+    setFormValues({ ...formValues, country: value });
+  };
+
+  const handleStateChange = (value) => {
+    setFormValues({ ...formValues, state: value });
   };
 
   const handleSubmit = (e) => {
@@ -111,22 +124,19 @@ const Signup = (props) => {
       </div>
       <div className={classes.control}>
         <label htmlFor="country">Country</label>
-        <input
-          type="text"
-          id="country"
-          name="country"
+        <CountryDropdown
           value={formValues.country}
-          onChange={handleChange}
+          onChange={handleCountryChange}
+          classes={classes.dropdown}
         />
       </div>
       <div className={classes.control}>
         <label htmlFor="State">State</label>
-        <input
-          type="text"
-          id="state"
-          name="state"
+        <RegionDropdown
+          country={formValues.country}
           value={formValues.state}
-          onChange={handleChange}
+          onChange={handleStateChange}
+          classes={classes.dropdown}
         />
       </div>
       <div className={classes.control}>
