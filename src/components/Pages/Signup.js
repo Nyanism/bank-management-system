@@ -34,17 +34,20 @@ const Signup = (props) => {
   };
 
   const handleCountryChange = (value) => {
-    setFormValues({ ...formValues, country: value });
+    setFormValues((prevFormValues) => {
+      return { ...prevFormValues, country: value };
+    });
   };
 
   const handleStateChange = (value) => {
-    setFormValues({ ...formValues, state: value });
+    setFormValues((prevFormValues) => {
+      return { ...prevFormValues, state: value };
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validateForm(formValues));
-    console.log(formErrors);
   };
 
   const validateForm = (values) => {
@@ -68,7 +71,7 @@ const Signup = (props) => {
     const dob = new Date(values.dob);
     const currentDate = new Date();
     if (currentDate < dob) {
-      errors.dob = "DOB should be less than system date.";
+      errors.dob = "DOB should be earlier than system date.";
     }
     let age = currentDate.getFullYear() - dob.getFullYear();
     const month = currentDate.getMonth() - dob.getMonth();

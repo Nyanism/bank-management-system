@@ -34,9 +34,48 @@ const Loan = (props) => {
     console.log(formValues);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateForm(formValues);
+    setFormErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      setIsApplied(true);
+    }
+  };
+
+  const validateForm = (values) => {
+    const errors = {};
+    const nameRegex = "[a-zA-Z][a-zA-Z ]+";
+    if (values.loanType === "education") {
+      if (+values.loanDetails.courseFee <= 0) {
+        errors.courseFee = "Course fee should be more than 0.";
+      }
+
+      if (values.loanDetails.fatherName.match(nameRegex) === null) {
+        errors.fatherName = "Name should only contain alphabets and spaces.";
+      }
+    }
+
+    if (+values.loanDetails.annualIncome < 0) {
+      errors.annualIncome = "Annual income should not be less than 0.";
+    }
+
+    if (+values.loanAmount <= 0) {
+      errors.loanAmount = "Loan amount should be more than 0.";
+    }
+
+    const loanApplyDate = new Date(values.loanApplyDate);
+    const currentDate = new Date();
+    if (loanApplyDate < currentDate) {
+      errors.loanApplyDate =
+        "Loan apply date should not be earlier than system date.";
+    }
+    return errors;
+  };
+
   return (
     <div className={classes.flexcontainer}>
-      <form className={classes.form}>
+      <form className={classes.form} onSubmit={handleSubmit}>
         <div className={classes.control}>
           <label htmlFor="loanType">Loan Type</label>
           <select
@@ -51,12 +90,18 @@ const Loan = (props) => {
             <option value="home">Home Loan</option>
           </select>
         </div>
-
         {formValues.loanType === "education" && (
-          <EducationLoan setLoanDetails={setLoanDetails} />
+          <EducationLoan
+            setLoanDetails={setLoanDetails}
+            formErrors={formErrors}
+          />
         )}
-        {formValues.loanType === "personal" && <OtherLoan />}
-        {formValues.loanType === "home" && <OtherLoan />}
+        {formValues.loanType === "personal" && (
+          <OtherLoan setLoanDetails={setLoanDetails} formErrors={formErrors} />
+        )}
+        {formValues.loanType === "home" && (
+          <OtherLoan setLoanDetails={setLoanDetails} formErrors={formErrors} />
+        )}
         <div className={classes.control}>
           <label htmlFor="loanAmount">Loan Amount</label>
           <input
@@ -68,6 +113,7 @@ const Loan = (props) => {
             required
           />
         </div>
+        <p className={classes.errors}>{formErrors.loanAmount}</p>
         <div className={classes.control}>
           <label htmlFor="loanApplyDate">Loan Apply Date</label>
           <input
@@ -79,7 +125,7 @@ const Loan = (props) => {
             required
           />
         </div>
-
+        <p className={classes.errors}>{formErrors.loanApplyDate}</p>
         <div className={classes.control}>
           <label htmlFor="interestRate">Rate of Interest (%)</label>
           <input
@@ -109,6 +155,7 @@ const Loan = (props) => {
         <div className={classes.actions}>
           <button className={classes.submit}>Apply</button>
         </div>
+        {isApplied && <p>Application successfully submitted.</p>}
       </form>
     </div>
   );

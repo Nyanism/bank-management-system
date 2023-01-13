@@ -33,6 +33,7 @@ const EducationLoan = (props) => {
           required
         />
       </div>
+      <p className={classes.errors}>{props.formErrors.courseFee}</p>
       <div className={classes.control}>
         <label htmlFor="course">Course</label>
         <input
@@ -55,6 +56,7 @@ const EducationLoan = (props) => {
           required
         />
       </div>
+      <p className={classes.errors}>{props.formErrors.fatherName}</p>
       <div className={classes.control}>
         <label htmlFor="fatherOccupation">Father's Occupation</label>
         <input
@@ -77,6 +79,7 @@ const EducationLoan = (props) => {
           required
         />
       </div>
+      <p className={classes.errors}>{props.formErrors.annualIncome}</p>
     </>
   );
 };
