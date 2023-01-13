@@ -27,7 +27,9 @@ const Signup = (props) => {
   const handleChange = (e) => {
     console.log(e.target);
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    setFormValues((prevFormValues) => {
+      return { ...prevFormValues, [name]: value };
+    });
     console.log(formValues);
   };
 

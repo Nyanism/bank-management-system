@@ -1,23 +1,35 @@
 import classes from "./Loan.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import EducationLoan from "./EducationLoan";
 
 const Loan = (props) => {
   const initialValues = {
-    loanType: "",
+    loanType: "education",
     loanAmount: "",
     loanApplyDate: "",
     interestRate: "",
     duration: "",
+    loanDetails: {},
   };
 
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+  const [isApplied, setIsApplied] = useState(false);
 
   const handleChange = (e) => {
     console.log(e.target);
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    setFormValues((prevFormValues) => {
+      return { ...prevFormValues, [name]: value };
+    });
+    console.log(formValues);
+  };
+
+  const setLoanDetails = (details) => {
+    setFormValues((prevFormValues) => {
+      return { ...prevFormValues, loanDetails: details };
+    });
     console.log(formValues);
   };
 
@@ -38,6 +50,12 @@ const Loan = (props) => {
             <option value="home">Home Loan</option>
           </select>
         </div>
+
+        {formValues.loanType === "education" && (
+          <EducationLoan setLoanDetails={setLoanDetails} />
+        )}
+        {/* {formValues.loanType === "personal" && <OtherLoan />}
+        {formValues.loanType === "home" && <OtherLoan />} */}
         <div className={classes.control}>
           <label htmlFor="loanAmount">Loan Amount</label>
           <input
@@ -74,42 +92,18 @@ const Loan = (props) => {
         </div>
         <div className={classes.control}>
           <label>Loan Duration (Years)</label>
-          <label htmlFor="loanDuration">5</label>
-          <input
-            type="radio"
-            id="5"
+          <select
+            id="loanDuration"
             name="loanDuration"
             value={formValues.loanDuration}
             onChange={handleChange}
             required
-          />
-          <label htmlFor="loanDuration">10</label>
-          <input
-            type="radio"
-            id="10"
-            name="loanDuration"
-            value={formValues.loanDuration}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="loanDuration">15</label>
-          <input
-            type="radio"
-            id="15"
-            name="loanDuration"
-            value={formValues.loanDuration}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="loanDuration">20</label>
-          <input
-            type="radio"
-            id="20"
-            name="loanDuration"
-            value={formValues.loanDuration}
-            onChange={handleChange}
-            required
-          />
+          >
+            <option value="5">5 Years</option>
+            <option value="10">10 Years</option>
+            <option value="15">15 Years</option>
+            <option value="20">20 Years</option>
+          </select>
         </div>
         <div className={classes.actions}>
           <button className={classes.submit}>Apply</button>
