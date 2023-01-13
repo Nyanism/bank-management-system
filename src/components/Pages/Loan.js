@@ -2,6 +2,7 @@ import classes from "./Loan.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import EducationLoan from "./EducationLoan";
+import OtherLoan from "./OtherLoan";
 
 const Loan = (props) => {
   const initialValues = {
@@ -54,8 +55,8 @@ const Loan = (props) => {
         {formValues.loanType === "education" && (
           <EducationLoan setLoanDetails={setLoanDetails} />
         )}
-        {/* {formValues.loanType === "personal" && <OtherLoan />}
-        {formValues.loanType === "home" && <OtherLoan />} */}
+        {formValues.loanType === "personal" && <OtherLoan />}
+        {formValues.loanType === "home" && <OtherLoan />}
         <div className={classes.control}>
           <label htmlFor="loanAmount">Loan Amount</label>
           <input

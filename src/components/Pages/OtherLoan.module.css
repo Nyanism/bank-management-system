@@ -1,0 +1,19 @@
+.control {
+  margin-bottom: 0.4rem;
+}
+
+.control label {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 0.22rem;
+  display: block;
+}
+
+.control input,
+.control select {
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 22rem;
+  max-width: 100%;
+}
