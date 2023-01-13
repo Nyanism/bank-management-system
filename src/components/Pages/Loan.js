@@ -1,5 +1,4 @@
 import classes from "./Loan.module.css";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import EducationLoan from "./EducationLoan";
 import OtherLoan from "./OtherLoan";
@@ -24,14 +23,12 @@ const Loan = (props) => {
     setFormValues((prevFormValues) => {
       return { ...prevFormValues, [name]: value };
     });
-    console.log(formValues);
   };
 
   const setLoanDetails = (details) => {
     setFormValues((prevFormValues) => {
       return { ...prevFormValues, loanDetails: details };
     });
-    console.log(formValues);
   };
 
   const handleSubmit = (e) => {

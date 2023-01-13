@@ -1,0 +1,45 @@
+.flexcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.control {
+  margin-bottom: 0.4rem;
+}
+
+.control label {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 0.22rem;
+  display: block;
+}
+
+.control input,
+.control select {
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 22rem;
+  max-width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  font: inherit;
+  color: #08044c;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+  border: 1px solid #08044c;
+  background-color: #08044c;
+  color: white;
+}
