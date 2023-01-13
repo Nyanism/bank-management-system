@@ -2,6 +2,7 @@ import classes from "./Loan.module.css";
 import { useState } from "react";
 import EducationLoan from "./EducationLoan";
 import OtherLoan from "./OtherLoan";
+import { Link } from "react-router-dom";
 
 const Loan = (props) => {
   const initialValues = {
@@ -151,6 +152,9 @@ const Loan = (props) => {
         </div>
         <div className={classes.actions}>
           <button className={classes.submit}>Apply</button>
+          <Link to="/home">
+            <button>Back</button>
+          </Link>
         </div>
         {isApplied && <p>Application successfully submitted.</p>}
       </form>

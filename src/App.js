@@ -6,6 +6,7 @@ import Signup from "./components/Pages/Signup";
 import Home from "./components/Pages/Home";
 import Loan from "./components/Pages/Loan";
 import Update from "./components/Pages/Update";
+import Error from "./components/Pages/Error";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route exact path="/update">
           <Update />
+        </Route>
+        <Route path="/*">
+          <Error />
         </Route>
       </Switch>
     </Router>

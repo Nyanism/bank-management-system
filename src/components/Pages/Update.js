@@ -1,5 +1,6 @@
 import classes from "./Update.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Update = (props) => {
   const initialValues = {
@@ -53,6 +54,9 @@ const Update = (props) => {
         </div>
         <div className={classes.actions}>
           <button>Deposit</button>
+          <Link to="/home">
+            <button>Back</button>
+          </Link>
         </div>
       </form>
       <p>Your current available balance is ${availableBalance}.</p>
