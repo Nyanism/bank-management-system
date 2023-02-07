@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.386d12d5.css",
-    "main.js": "/static/js/main.f170794b.js",
-    "static/js/787.c9d79deb.chunk.js": "/static/js/787.c9d79deb.chunk.js",
-    "index.html": "/index.html",
-    "main.386d12d5.css.map": "/static/css/main.386d12d5.css.map",
-    "main.f170794b.js.map": "/static/js/main.f170794b.js.map",
-    "787.c9d79deb.chunk.js.map": "/static/js/787.c9d79deb.chunk.js.map"
+    "main.css": "/bank-management-system/static/css/main.386d12d5.css",
+    "main.js": "/bank-management-system/static/js/main.669a0ec9.js",
+    "static/js/787.c9d79deb.chunk.js": "/bank-management-system/static/js/787.c9d79deb.chunk.js",
+    "index.html": "/bank-management-system/index.html",
+    "main.386d12d5.css.map": "/bank-management-system/static/css/main.386d12d5.css.map",
+    "main.669a0ec9.js.map": "/bank-management-system/static/js/main.669a0ec9.js.map",
+    "787.c9d79deb.chunk.js.map": "/bank-management-system/static/js/787.c9d79deb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.386d12d5.css",
-    "static/js/main.f170794b.js"
+    "static/js/main.669a0ec9.js"
   ]
 }
