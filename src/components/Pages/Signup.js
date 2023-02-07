@@ -25,12 +25,10 @@ const Signup = (props) => {
   const [formErrors, setFormErrors] = useState({});
 
   const handleChange = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
     setFormValues((prevFormValues) => {
       return { ...prevFormValues, [name]: value };
     });
-    console.log(formValues);
   };
 
   const handleCountryChange = (value) => {
@@ -52,15 +50,14 @@ const Signup = (props) => {
 
   const validateForm = (values) => {
     const errors = {};
-    const nameRegex = "[a-zA-Z][a-zA-Z ]+";
-    const emailRegex =
-      "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/";
+    const nameRegex = "[a-zA-Z][a-zA-Z ]+[a-zA-Z]$";
+    const emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
 
     if (values.name.match(nameRegex) === null) {
       errors.name = "Name should only contain alphabets and spaces.";
     }
 
-    if ((+values.contactNo).length !== 10) {
+    if (values.contactNo.length !== 10) {
       errors.contactNo = "Contact number should contain exactly 10 digits.";
     }
 

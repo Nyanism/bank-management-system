@@ -8,10 +8,10 @@ const Update = (props) => {
     depositAmount: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
   const [availableBalance, setAvailableBalance] = useState(0);
 
   const handleChange = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
     setFormValues((prevFormValues) => {
       return { ...prevFormValues, [name]: value };
@@ -20,9 +20,21 @@ const Update = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAvailableBalance((prevAvailableBalance) => {
-      return prevAvailableBalance + +formValues.depositAmount;
-    });
+    const errors = validateForm(formValues);
+    setFormErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      setAvailableBalance((prevAvailableBalance) => {
+        return prevAvailableBalance + +formValues.depositAmount;
+      });
+    }
+  };
+
+  const validateForm = (values) => {
+    const errors = {};
+    if (+values.depositAmount < 0) {
+      errors.depositAmount = "Deposit amount should be more than 0.";
+    }
+    return errors;
   };
 
   return (
@@ -52,6 +64,7 @@ const Update = (props) => {
             required
           />
         </div>
+        <p className={classes.errors}>{formErrors.depositAmount}</p>
         <div className={classes.actions}>
           <button>Deposit</button>
           <Link to="/home">

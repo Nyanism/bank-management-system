@@ -19,7 +19,6 @@ const Loan = (props) => {
   const [isApplied, setIsApplied] = useState(false);
 
   const handleChange = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
     setFormValues((prevFormValues) => {
       return { ...prevFormValues, [name]: value };
